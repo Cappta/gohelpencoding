@@ -9,7 +9,6 @@ import (
 
 	"github.com/Cappta/gofixture"
 
-	. "github.com/Cappta/gofixture"
 	. "github.com/smartystreets/goconvey/convey"
 )
 
@@ -20,7 +19,7 @@ func TestBase64StdDecodeBatch(t *testing.T) {
 	Convey(fmt.Sprintf("Given the random seed %d", seed), t, func() {
 		rand.Seed(seed)
 		Convey("Given a length higher than 2 and lower than 10", func() {
-			length := AnyIntBetween(2, 10)
+			length := gofixture.AnyIntBetween(2, 10)
 			Convey(fmt.Sprintf("Given %d byte slices with any length between 10 and 1000", length), func() {
 				bytes := make([][]byte, length)
 				for i := 0; i < length; i++ {
